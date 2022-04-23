@@ -1,0 +1,48 @@
+<h2>Let's workout</h2>
+
+<%= form_with url: "/posts/create", local: true do |f| %>
+  <div class = "today">
+    <p>
+      <%= f.text_field :title, placeholder:"year", maxlength:"4" %>
+    </p>
+
+    <p>
+      <%= f.text_field :title, placeholder:"month", maxlength:"2" %>
+    </p>
+
+    <p>
+      <%= f.text_field :title, placeholder:"day", maxlength:"2" %>
+    </p>
+
+  <div class = "temprate">
+    <p>
+      <%= f.collection_select(:parts_id, Parts.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+    </p>
+
+    <p>
+      <%= f.collection_select(:parts_two_id, PartsTwo.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+    </p>
+
+    <p>
+      <%= f.text_field :title, placeholder:"exercise" %>
+    </p>
+
+    <p>
+      <%= f.text_field :title, placeholder:"weight" %>
+      kg
+    </p>
+
+    <p>
+      <%= f.text_field :title, placeholder:"reps" %>
+      rep
+    </p>
+
+    <input type="button" value="+" onclick="addForm()">
+  </div>
+
+
+  <p>
+  <%= f.submit "DONE" %>
+  </p>
+
+<% end %>
